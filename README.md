@@ -1,6 +1,6 @@
-# Anonymous submission to COLLAs 2022
+# Continual Unsupervised Learning for Optical Flow Estimation with Deep Networks - COLLAs 2022
 
-Title: ** Continual Unsupervised Learning for Optical Flow Estimation with Deep Networks **
+Authors: Simone Marullo, Matteo Tiezzi, Alessandro Betti, Lapo Faggi, Enrico Meloni, Stefano Melacci
 
 _Notice that reproducibility is not guaranteed by PyTorch across different releases, platforms, hardware. Moreover,
 determinism cannot be enforced due to use of PyTorch operations for which deterministic implementations do not exist
