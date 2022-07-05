@@ -1,0 +1,190 @@
+#### GENERAL
+python run_colof.py --arch=resunetof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=ndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_baseline.py --arch=none --experience=a
+python run_baseline.py --arch=none --experience=b
+python run_baseline.py --arch=none --experience=c
+python run_baseline.py --arch=none --experience=movie
+python run_baseline.py --arch=sota-flownets --experience=a
+python run_baseline.py --arch=sota-flownets --experience=b
+python run_baseline.py --arch=sota-flownets --experience=c
+python run_baseline.py --arch=sota-flownets --experience=movie
+python run_baseline.py --arch=sota-raft-small --experience=a
+python run_baseline.py --arch=sota-raft-small --experience=b
+python run_baseline.py --arch=sota-raft-small --experience=c
+python run_baseline.py --arch=sota-raft-small --experience=movie
+python run_baseline.py --arch=sota-smurf --experience=a
+python run_baseline.py --arch=sota-smurf --experience=b
+python run_baseline.py --arch=sota-smurf --experience=c
+python run_baseline.py --arch=sota-smurf --experience=movie
+python run_baseline.py --arch=sota-raft --experience=a
+python run_baseline.py --arch=sota-raft --experience=b
+python run_baseline.py --arch=sota-raft --experience=c
+python run_baseline.py --arch=sota-raft --experience=movie
+
+#### HORN-SCHUNCK COMPARISON
+python run_baseline.py --arch=none-ihs --experience=a --iter_ihs=30 --lambda_s=0.5 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=b --iter_ihs=30 --lambda_s=0.5 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=c --iter_ihs=30 --lambda_s=1 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=movie --iter_ihs=30 --lambda_s=0.1 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=a --iter_ihs=30 --lambda_s=0.1 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=b --iter_ihs=30 --lambda_s=0.1 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=c --iter_ihs=30 --lambda_s=0.1 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=movie --iter_ihs=30 --lambda_s=0.1 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=a --iter_ihs=200 --lambda_s=1 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=b --iter_ihs=200 --lambda_s=1 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=c --iter_ihs=200 --lambda_s=1 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=movie --iter_ihs=200 --lambda_s=0.5 --warm_ihs=yes
+python run_baseline.py --arch=none-ihs --experience=a --iter_ihs=200 --lambda_s=0.5 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=b --iter_ihs=200 --lambda_s=0.5 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=c --iter_ihs=200 --lambda_s=0.5 --warm_ihs=no
+python run_baseline.py --arch=none-ihs --experience=movie --iter_ihs=200 --lambda_s=0.1 --warm_ihs=no
+
+#### CONCAT EXPERIMENT
+python run_colof.py --arch=resunetof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=150 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=ndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=150 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=150 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=150 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=cat --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+
+#### FORGETTING EXPERIMENT
+python run_colof.py --arch=resunetof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=resunetof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=resunetof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=50 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=50 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+python run_colof.py --arch=flownets --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0.01
+python run_colof.py --arch=flownets --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500 --weight_decay=0
+
+
+#### STATIC INTERLEAVING EXPERIMENT
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=resunetof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=ndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=0.5 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-5e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=0.5 --step_size=-5e-06 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=dilndconvof --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgdiff:0.001:22500 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflow:0.20:0.02:22500:-1 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=avgflowhistory:0.05:22500:-1 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=a --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=b --lambda_s=1 --step_size=-0.0001 --subsampling_updates=0 --weight_decay=0
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=c --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0.01
+python run_colof.py --arch=flownets --custom_playback=5.0:5.0 --exp_type=full --experience=movie --lambda_s=1 --step_size=-1e-05 --subsampling_updates=0 --weight_decay=0

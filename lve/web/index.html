@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning in Visual Environments (LVE)</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="jquery-ajax-blob-arraybuffer.js"></script>
+    <script src="utils.js"></script>
+    <script src="get_and_draw.js"></script>
+    <script src="get_and_draw_cont.js"></script>
+    <script src="other_ajax_calls.js"></script>
+    <script src="main.js"></script>
+    <script src="FileSaver.js"></script>
+</head>
+
+<body>
+<div id="disabling_div" ></div>
+
+<!-- CONTROLS FORM -->
+<table style="text-align: center; width: 1300px">
+    <tr><td>
+    <fieldset class="black" id="controls" style="width: 850px; height: 60px">
+        <legend class="black" id="controls_legend">Controls</legend>
+        Frame: <input type="text" id="text_cur_frame" value="1" size="8"/>/<input type="text" id="text_frames"
+                                                                                  size="8" readonly/>
+        FPS: <input type="text" id="text_fps" size="5"/>
+        &nbsp;&nbsp;
+        <strong>Sync:</strong>
+        <input type="button" id="button_sync_on" value="Follow" style="background-color: transparent;
+        border: 1px solid darkblue; color: darkblue" ; onclick="
+            {
+                if (_flag_error) {
+                    reset_all_canvas();
+                }
+                _flag_error = false;
+
+                if (!_sync_follow) {
+                    follow();
+                } else {
+                    stop_following();
+                }
+            }
+        "/>
+        <input type="button" id="button_sync_pause" value="Pause" style="background-color: transparent;
+        border: 1px solid darkblue; color: darkblue" onclick="
+            {
+                if (_flag_error) {
+                    reset_all_canvas();
+                }
+
+                _flag_error = false;
+
+                if (!_sync_paused) {
+                    sync_pause_on();
+                } else {
+                    sync_pause_off();
+                }
+            }
+        "/>
+        &nbsp;&nbsp;
+        <strong>Offline:</strong>
+        <input type="button" id="button_prev" value="<< Prev"
+               onclick="{ if (_flag_error) reset_all_canvas();
+               _flag_error = false; stop_following(); do_action('prev'); }"/>
+        <input type="button" id="button_next" value="Next >>"
+               onclick="{ if (_flag_error) reset_all_canvas();
+               _flag_error = false; stop_following(); do_action('next'); }"/>
+        <input type="button" id="button_play" value="Play"
+               onclick="{ if (_flag_error) reset_all_canvas();
+               _flag_error = false; stop_following(); do_action('play'); }"/>
+        <input type="button" id="button_stop" value="Pause"
+               onclick="{ if (_flag_error) reset_all_canvas();
+               _flag_error = false; stop_following(); do_action('stop'); }"/>
+        <input type="button" id="button_refresh" value="Refresh"
+               onclick="{ if (_flag_error) reset_all_canvas();
+               _flag_error = false; stop_following(); do_action('refresh'); }"/>
+    </fieldset>
+    <fieldset class="multi" style="height: 60px; width: 225px">
+        <legend>Options</legend>
+        <div id="option_change">
+            <select id="option_list" onchange="{
+                    $('#text_option').val($('#option_list').val());
+                }">
+            </select>
+            <input type="text" id="text_option" value="-" size="10"/>
+            <button id="send_option" type="button"
+                    onclick="{send_option_change($('#option_list option:selected').text(),
+            $('#text_option').val(), $('#option_list option:selected'))}">Update</button>
+        </div>
+    </fieldset>
+    </td></tr>
+    <tr><td>
+    <fieldset class="black" style="height: 60px; width: 295px">
+        <legend class="black">Main Outputs</legend>
+        <input type="checkbox" id="checkbox_video" checked onclick="{ _views_visualization_changed = true; }">Video
+        <input type="checkbox" id="checkbox_details" checked onclick="{ _views_visualization_changed = true; }">Details
+        <input type="checkbox" id="checkbox_supervisions" onclick="{ _views_visualization_changed = true; }">Sup
+        <input type="checkbox" id="checkbox_predictions" onclick="{ _views_visualization_changed = true; }">Pred
+        <input type="checkbox" id="checkbox_interaction" onclick="{ _views_visualization_changed = true; }">Interact<br />
+        <input type="checkbox" id="checkbox_predicted_motion" checked onclick="{ _views_visualization_changed = true; }">PredM.
+        <input type="checkbox" id="checkbox_predicted_backward_motion" onclick="{ _views_visualization_changed = true; }">PredBackM.
+        <input type="checkbox" id="checkbox_ihs_motion" onclick="{ _views_visualization_changed = true; }">IHSM.
+        <input type="checkbox" id="checkbox_motion" checked onclick="{ _views_visualization_changed = true; }">M.
+    </fieldset>
+    <fieldset class="black" style="height: 60px; width: 290px">
+        <legend class="black">Other Outputs</legend>
+        <div id="output_change">
+            <select id="output_list" onchange="selected_an_output_from_list();">
+            </select>
+            <input type="text" id="text_output_range" value="0-0" size="8"/>
+            <input type="checkbox" id="checkbox_output_normalization" checked
+                   onchange="_normalize_generic_outputs[_selected_output]
+                   = !_normalize_generic_outputs[_selected_output];">Min-Max
+            <br/>
+            <button id="output_show" type="button"
+                    onclick="show_generic_output($('#output_list option:selected').text(), $('#output_list').val());"
+            >Show</button>
+            <button id="output_hide" type="button"
+                    onclick="hide_generic_output($('#output_list option:selected').text());">Hide</button>
+        </div>
+    </fieldset>
+    <fieldset class="multi" style="height: 60px; width: 210px">
+        <legend>Video & Motion</legend>
+        <input type="checkbox" id="checkbox_focus">Video Focus
+        <br/>
+        <input type="radio" id="radio_motion_map" checked name="x" value="map">Motion Map
+        <input type="radio" id="radio_motion_lines" name="x" value="lines">Motion Lines
+    </fieldset>
+    <fieldset class="multi" style="height: 60px; width: 245px">
+        <legend>Predictions & Interaction</legend>
+        Predictions:
+        <input type="text" id="text_predictions_range" value="0-0" size="5"/>
+        <input type="checkbox" id="checkbox_predictions_normalization">Min-Max
+        <br/>
+        <input type="radio" id="radio_predictions_max" name="y" checked>Max
+        <input type="radio" id="radio_predictions_top" name="y">Top3
+        <input type="radio" id="radio_predictions_none" name="y">None
+        <input type="checkbox" id="checkbox_sup_and_go" checked>Sup&Go
+    </fieldset>
+    </td></tr>
+</table>
+
+<!-- SYSTEM OUTPUTS TABLE -->
+<table>
+    <tr>
+
+        <!-- VIEWS AREA -->
+        <td style="vertical-align: top">
+            <table class="viewTable" id="main_table">
+                <tbody></tbody>
+            </table>
+        </td>
+
+        <!-- LABEL TABLE AREA -->
+        <td style="vertical-align: top">
+            <div id="labelTableContainer" style="visibility: hidden">
+            <table class="labelTable">
+                <thead>
+                <tr>
+                    <th>Label</th>
+                    <th>Predictor</th>
+                    <th>#Sup</th>
+                    <th>Color</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <form>
+                            <input type="text" size="15" id="new_class_label"/>
+                            <div class="links">
+                                <a href="#" id="new_class_button" style="text-decoration:none;" onclick="
+                                {
+                                    send_supervision($('#new_class_label').val());
+                                    $('#new_class_label').val('');
+                                }
+                                ">Add + Send</a>
+                            </div>
+                        </form>
+                    </td>
+                <tr>
+                </tfoot>
+                <tbody id="label_table">
+                </tbody>
+            </table>
+            <div style="font-size: 13px; font-weight: bold; position: center; text-align: center;
+                width: 100%; margin: 5px">
+                Classes
+            </div>
+            </div>
+        </td>
+
+        <!-- DETAILS AREA -->
+        <td style="vertical-align: top">
+            <pre id="json"></pre>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
