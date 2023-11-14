@@ -2,6 +2,8 @@
 
 Authors: Simone Marullo, Matteo Tiezzi, Alessandro Betti, Lapo Faggi, Enrico Meloni, Stefano Melacci
 
+[Paper link](https://proceedings.mlr.press/v199/marullo22a.html) 
+
 _Notice that reproducibility is not guaranteed by PyTorch across different releases, platforms, hardware. Moreover,
 determinism cannot be enforced due to use of PyTorch operations for which deterministic implementations do not exist
 (e.g. bilinear upsampling)._
@@ -132,3 +134,9 @@ while `sota-smurf`, `sota-raft`, `sota-flownets` are pretrained publicly availab
 ResUnet, NdConv, DNdConv correspond to `resunetof`, `ndconvof`, `dilndconvof`. 
 
 Concerning the metrics, Motion-F1 is termed `Moving-F1` here.
+
+
+Acknowledgement
+---------------
+
+This software was developed in the context of some of the activities of the PRIN 2017 project RexLearn, funded by the Italian Ministry of Education, University and Research (grant no. 2017TWNMH2).This software was developed in the context of some of the activities of the PRIN 2017 project RexLearn, funded by the Italian Ministry of Education, University and Research (grant no. 2017TWNMH2).
